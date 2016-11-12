@@ -1,0 +1,20 @@
+# SCMS Configuration - Default values 
+ 
+[databases]
+  [databases.app]
+  host = "localhost" 
+  name = "scms" 
+  username = "scms" 
+  password = "scms" 
+ 
+  [databases.log]
+  host = "localhost" 
+  name = "scms_log" 
+  username = "scms_log" 
+  password = "scms_log" 
+ 
+[secrets]
+# user password encryption salt - Change this value to something unique 
+passwordSalt = "passwordSalt" 
+# cipher key for document encryption - Change this value to something unique 
+documentKey = "documentKey" 
