@@ -17,6 +17,7 @@ func main() {
 	recovery := negroni.NewRecovery()
 	recovery.ErrorHandlerFunc = handleRecovery
 	n.Use(recovery)
+	n.Use(negroni.NewLogger())
 	n.Use(negroni.NewStatic(http.Dir("/public")))
 	n.UseHandler(mux)
 
@@ -27,6 +28,8 @@ func main() {
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
+
+	fmt.Println("Server Listening on port :8080")
 	s.ListenAndServe()
 }
 
